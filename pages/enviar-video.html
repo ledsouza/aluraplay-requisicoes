@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="../css/flexbox.css" />
         <title>AluraPlay</title>
         <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+        <script type="module" src="../js/publicarVideo.js" defer></script>
     </head>
 
     <body>
@@ -29,7 +30,7 @@
         </header>
 
         <main class="container">
-            <form class="container__formulario">
+            <form class="container__formulario" data-formulario>
                 <h2 class="formulario__titulo">Envie um vídeo!</h2>
                 <div class="formulario__campo">
                     <label class="campo__etiqueta" for="url">Link embed</label>
@@ -39,6 +40,7 @@
                         required
                         placeholder="Por exemplo: https://www.youtube.com/embed/FAY1K2aUg5g"
                         id="url"
+                        data-url
                     />
                 </div>
 
@@ -50,6 +52,7 @@
                         required
                         placeholder="Neste campo, dê o nome do vídeo"
                         id="titulo"
+                        data-titulo
                     />
                 </div>
 
@@ -61,6 +64,7 @@
                         required
                         placeholder="Insira a url da imagem"
                         id="imagem"
+                        data-imagem
                     />
                 </div>
 

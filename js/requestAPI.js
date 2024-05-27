@@ -17,6 +17,9 @@ async function postVideo(titulo, descricao, url, imagem) {
             imagem: imagem,
         }),
     });
+    if (!response.ok) {
+        throw new Error("Não foi possível enviar o vídeo");
+    }
 
     const video = await response.json();
     return video;

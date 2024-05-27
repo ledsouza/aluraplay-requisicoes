@@ -5,11 +5,22 @@ const listaVideos = document.querySelector("[data-lista]");
 listarVideos();
 
 async function listarVideos() {
-    const videos = await requestAPI.getVideos();
-    videos.forEach((video) => {
-        const cardVideo = criarCardVideo(video);
-        listaVideos.appendChild(cardVideo);
-    });
+    try {
+        const videos = await requestAPI.getVideos();
+        videos.forEach((video) => {
+            const cardVideo = criarCardVideo(video);
+            listaVideos.appendChild(cardVideo);
+        });
+    } catch (error) {
+        let mensagemErro = "Ops! Algo deu errado.";
+        if (error.message.includes("Network Error")) {
+            mensagemErro = "Sem conexão com a internet. Verifique sua rede e tente novamente.";
+        } else if (error.response && error.response.status >= 500) {
+            mensagemErro =
+                "Ocorreu um problema no servidor. Por favor, tente novamente mais tarde.";
+        }
+        listaVideos.innerHTML = `<h3 class="mensagem__titulo">${mensagemErro}</h3>`;
+    }
 }
 
 export default function criarCardVideo(video) {

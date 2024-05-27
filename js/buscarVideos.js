@@ -12,6 +12,10 @@ async function buscarVideos(evento) {
 
     const valorBusca = document.querySelector("[data-busca]").value;
     const videos = await requestAPI.queryVideos(valorBusca);
+    if (videos.length == 0) {
+        listaVideos.innerHTML = `<h3 class="mensagem__titulo">Não existe nenhum vídeo com esse termo</h3>`;
+        return;
+    }
 
     videos.forEach((video) => {
         const cardVideo = criarCardVideo(video);

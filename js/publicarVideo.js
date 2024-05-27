@@ -12,6 +12,10 @@ async function publicarVideo(evento) {
     const url = document.querySelector("[data-url]").value;
     const imagem = document.querySelector("[data-imagem]").value;
 
-    await requestAPI.postVideo(titulo, descricao, url, imagem);
-    window.location.replace("../pages/envio-concluido.html");
+    try {
+        await requestAPI.postVideo(titulo, descricao, url, imagem);
+        window.location.replace("../pages/envio-concluido.html");
+    } catch (error) {
+        alert(error);
+    }
 }

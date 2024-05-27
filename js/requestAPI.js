@@ -22,7 +22,14 @@ async function postVideo(titulo, descricao, url, imagem) {
     return video;
 }
 
+async function buscarVideos(valorBusca) {
+    const response = await fetch(`http://localhost:3000/videos?q=${valorBusca}`);
+    const videos = await response.json();
+    return videos;
+}
+
 export const requestAPI = {
     getVideos,
     postVideo,
+    buscarVideos,
 };

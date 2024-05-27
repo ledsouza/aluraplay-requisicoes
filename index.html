@@ -14,6 +14,7 @@
         <title>AluraPlay</title>
         <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
         <script type="module" src="js/exibirVideos.js" defer></script>
+        <script type="module" src="js/buscarVideos.js" defer></script>
     </head>
 
     <body>
@@ -26,8 +27,9 @@
                         placeholder="Pesquisar"
                         id="pesquisar"
                         class="pesquisar__input"
+                        data-busca
                     />
-                    <button class="pesquisar__botao"></button>
+                    <button class="pesquisar__botao" data-busca-btn></button>
                 </div>
                 <div class="cabecalho__icones">
                     <a href="./pages/enviar-video.html" class="cabecalho__videos"></a>

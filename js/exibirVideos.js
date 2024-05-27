@@ -12,7 +12,7 @@ async function listarVideos() {
     });
 }
 
-function criarCardVideo(video) {
+export default function criarCardVideo(video) {
     const itemVideo = document.createElement("li");
     itemVideo.className = "videos__item";
     itemVideo.innerHTML = `

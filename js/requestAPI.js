@@ -4,7 +4,7 @@ async function getVideos() {
     return videos;
 }
 
-async function postVideo() {
+async function postVideo(titulo, descricao, url, imagem) {
     const response = await fetch("http://localhost:3000/videos", {
         method: "POST",
         headers: {
